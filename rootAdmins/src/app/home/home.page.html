@@ -1,0 +1,99 @@
+<ion-header [translucent]="true">
+  <ion-toolbar  class="textotitle" color="primary" >
+    <ion-row >
+      <ion-col size="2"> 
+        <ion-icon class="return" name="arrow-back"  ></ion-icon>  </ion-col>
+
+      <ion-col align="center" size="8">
+      
+        ROOT
+  
+      </ion-col>
+      <ion-col size="2" >
+        <img class="avatar" src="\assets\icons\imagenlogo-Avatar.png">
+      </ion-col>            
+    </ion-row> 
+  </ion-toolbar>
+</ion-header>
+<ion-content  [fullscreen]="true" class="background" >
+
+<ion-card color="gray" align="center" mode="ios">
+<ion-grid>
+  <ion-row class="top-10">
+    <ion-col size="6">
+      <ion-button id="puto" name="acceso"
+                   class="ion-padding"
+                   size="medium"
+                   expand="block"
+                   [routerLink]="['/accesos']" 
+                   class="ion-text-wrap"
+                   fill="outline"
+                   color="primary">                   
+                   <div align="center">
+                    <img src="\assets\icons\entrar.png">
+                    <br>
+                    <label class="color" for="">Accesos</label>
+                   </div>
+                            
+       </ion-button>
+  </ion-col>
+
+    <ion-col size="6">
+      <ion-button name="mensajes"
+                  class="ion-padding"
+                  size="medium"
+                  expand="block"
+                  [routerLink]="['/activar-desactivar']" 
+                  class="ion-text-wrap"
+                  fill="outline"
+                  color="primary" >
+                  
+                  <div align="center">
+                    <img src="\assets\icons\mensaje-recibido.png">
+                    <br>
+                    <label for="">Activar/Desactivar</label>
+                   </div>
+    </ion-button>
+    </ion-col>
+
+    <ion-col size="6">
+      <ion-button name="reservaciones"
+                  class="ion-padding"
+                  size="medium"
+                  expand="block"
+                  [routerLink]="['/super-administrador']" 
+                  class="ion-text-wrap"
+                  fill="outline"
+                  color="primary" >
+                  
+                  <div align="center">
+                    <img src="\assets\icons\term.png">
+                    <br>
+                    <label for="">Super Administrador </label>
+                   </div>
+</ion-button>
+    </ion-col>
+    
+    <ion-col size="6">
+      <ion-button name="encuestas"
+                  class="ion-padding"
+                  size="medium"
+                  expand="block"
+                  [routerLink]="['/balance']" 
+                  class="ion-text-wrap"
+                  fill="outline"
+                  color="primary" >
+                 
+                  <div align="center">
+                    <img src="\assets\icons\pruebas.png">
+                    <br>
+                    <label  for="">Balance</label>
+                   </div>
+      </ion-button>
+    </ion-col>
+
+  </ion-row>
+</ion-grid>
+</ion-card> 
+
+</ion-content>
