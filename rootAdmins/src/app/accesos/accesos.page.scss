@@ -1,3 +1,21 @@
 ion-content.background{
     --ion-background-color: #16171a;
   }
+
+  img.sis{
+    width: 45px;
+  }
+
+  ion-input{
+    color: whitesmoke;
+  }
+
+  ion-label.color{
+    color: whitesmoke;
+  }
+
+  ion-button.sis{
+    border-bottom: medium;
+    color: whitesmoke;
+    --background: transparent ;
+  }

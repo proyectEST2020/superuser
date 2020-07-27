@@ -1,22 +1,47 @@
-<ion-header>  
-  <ion-toolbar color="primary" routerLink="/home">
-    <ion-row >
-      <ion-col size="1"> 
-        <ion-icon class="return" name="arrow-back"  ></ion-icon>  </ion-col>
+<ion-header>
+  <ion-toolbar class="ion-text-center" color="primary" routerLink="/home">
+    <img slot="end" class="sis" src="\assets\icons\lo.png">
+    <ion-icon slot="start" size="large" class="return" name="arrow-back"></ion-icon>
+    ACCESOS
 
-      <ion-col align="center" size="9">
-     
-     ACCESOS
-      
-      </ion-col>
-      <ion-col size="2" >
-          <img src="\assets\icons\imagenlogo-Avatar.png">
-
-      </ion-col>          
-    </ion-row> 
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fillscreen]="true"  align="center" class="background">
+<ion-content class="background">
+
+
+  <ion-card>
+
+    <ion-button size="medium" 
+                class="sis">Logo del Fraccionamiento</ion-button>
+
+    <ion-item>
+      <ion-label class="color" position="floating"> Nombre del Fraccionamiento</ion-label>
+      <ion-input type="text" required></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label class="color" position="floating">Usuario</ion-label>
+      <ion-input></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label class="color" position="floating">Contraseña</ion-label>
+      <ion-input></ion-input>
+    </ion-item>
+
+    <ion-item color="dark">
+      <ion-label class="color" position="floating">Fecha de Creacion</ion-label>
+      <ion-datetime class="color" displayFormat="MM-DD-YYYY" disabled value="{{ fecha | date: 'yyyy-MM-dd'}}">
+      </ion-datetime>
+    </ion-item>
+  </ion-card>
+
+  <ion-button color="secondary" 
+                fill="outline" 
+                size="medium" 
+                class="ion-text-wrap">
+                <ion-icon name="pencil" color="warning" size="large" slot="start"></ion-icon>
+                Registrar</ion-button>
 
 </ion-content>
