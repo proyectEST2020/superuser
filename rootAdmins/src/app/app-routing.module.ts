@@ -35,7 +35,11 @@ const routes: Routes = [
   {
     path: 'super-administrador',
     loadChildren: () => import('./super-administrador/super-administrador.module').then( m => m.SuperAdministradorPageModule)
+  },  {
+    path: 'infofraccionamiento',
+    loadChildren: () => import('./infofraccionamiento/infofraccionamiento.module').then( m => m.InfofraccionamientoPageModule)
   },
+
 ];
 
 @NgModule({
