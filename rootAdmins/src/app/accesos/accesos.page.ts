@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./accesos.page.scss'],
 })
 export class AccesosPage implements OnInit {
-
+fecha: Date = new Date();
   constructor() { }
 
   ngOnInit() {
