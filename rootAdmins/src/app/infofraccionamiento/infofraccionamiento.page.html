@@ -27,6 +27,14 @@
         <ion-card-subtitle>status.status</ion-card-subtitle>
       </ion-card-header>      
     </ion-card>
+    <ion-segment color="success" (ionChange)="segmentChanged($event)" value="javascript">
+      <ion-segment-button value="python">
+        <ion-label color="primary" >Acceso</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="javascript">
+        <ion-label color="primary" >completo</ion-label>
+      </ion-segment-button>
+    </ion-segment>
     <ion-segment color="primary" (ionChange)="segmentChanged($event)" value="javascript">
       <ion-segment-button value="python">
         <ion-label color="success" >Activar</ion-label>
