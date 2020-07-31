@@ -12,4 +12,8 @@ export class InfofraccionamientoPage implements OnInit {
   ngOnInit() {
   }
 
+  segmentChanged(event: any) {
+    console.log('Segment changed', event);
+  }
+
 }

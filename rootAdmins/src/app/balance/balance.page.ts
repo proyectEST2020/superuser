@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./balance.page.scss'],
 })
 export class BalancePage implements OnInit {
-
+fecha: Date = new Date ();
   constructor() { }
 
   ngOnInit() {
