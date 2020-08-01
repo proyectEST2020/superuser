@@ -68,3 +68,15 @@ img.banner{
 img.sis{
   width: 45px;
 }
+
+
+ion-button.tamaño{
+  height:70px;
+ //width: 130px;
+ text-overflow: 25px;
+ border-radius: 15px;
+ border: 6px inset rgb(0, 183, 255);
+ --background: transparent;
+ 
+
+}

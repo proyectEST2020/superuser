@@ -13,32 +13,37 @@
   <ion-card>
 
     <ion-button size="medium" 
-                class="sis">Logo del Fraccionamiento</ion-button>
+                class="sis"><ion-icon lazy="true" size="lage" slot="start" name="image" color="secondary"></ion-icon> 
+              <input type="file" color="secondary" id="file-input" accept="image/png, image/jpeg" style="font-size: x-small;">
+              </ion-button>
 
     <ion-item>
       <ion-label class="color" position="floating"> Nombre del Fraccionamiento</ion-label>
-      <ion-input type="text" required></ion-input>
+      <ion-input type="text" [(ngModel)]="post.nfraccionamiento" required ></ion-input>
     </ion-item>
     <ion-item>
       <ion-label class="color">Tipo de Registro</ion-label>
-      <ion-select class="color" placeholder="Registros">
+      <ion-select  [(ngModel)]="post.tipo" required class="color" placeholder="Registros">
         <ion-select-option value="f">Completo</ion-select-option>
         <ion-select-option value="m">Acceso</ion-select-option>
       </ion-select>
     </ion-item>
     <ion-item>
       <ion-label class="color" position="floating">Usuario</ion-label>
-      <ion-input></ion-input>
+      <ion-input  ></ion-input>
     </ion-item>
 
     <ion-item>
       <ion-label class="color" position="floating">Contraseña</ion-label>
-      <ion-input></ion-input>
+      <ion-input type="password" required ></ion-input>
     </ion-item>
-
+    <ion-item>
+      <ion-label class="color" position="floating">Cuota</ion-label>
+      <ion-input  ></ion-input>
+    </ion-item>
     <ion-item color="dark">
       <ion-label class="color" position="floating">Fecha de Creacion</ion-label>
-      <ion-datetime class="color" displayFormat="MM-DD-YYYY" disabled value="{{ fecha | date: 'yyyy-MM-dd'}}">
+      <ion-datetime  class="color" displayFormat="MM-DD-YYYY"   [(ngModel)]="post.fecha">
       </ion-datetime>
     </ion-item>
   </ion-card>
@@ -47,7 +52,8 @@
   <ion-button color="secondary" 
                 fill="outline" 
                 size="medium" 
-                class="ion-text-wrap">
+                class="ion-text-wrap"
+                (click)="createPost(post)">
                 <ion-icon name="pencil" color="warning" size="large" slot="start"></ion-icon>
                 Registrar</ion-button>
 </ion-card>
