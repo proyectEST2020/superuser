@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Acces } from '../models/registro-accesos.model';
+import { User } from '../models/user.mode';
+
 import { ToastController, LoadingController, NavController } from '@ionic/angular';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFirestore } from '@angular/fire/firestore';
@@ -13,14 +15,49 @@ import { InfofraccionamientoPage } from '../infofraccionamiento/infofraccionamie
 export class AccesosPage implements OnInit {
 fecha: Date = new Date();
 post = { } as Acces;
+user = { } as User;
 
   constructor( private toastCtrl: ToastController, 
                private loadingCtrl:LoadingController,
                private navCtrl: NavController,
+               private afAuth: AngularFireAuth,
                private fireStorte: AngularFirestore) { }
 
   ngOnInit() {
   }
+
+  async register(user: User){
+    if(this.formValidation()){
+  
+      //mostrar carga de espera
+     let loader = this.loadingCtrl.create({
+        message: "please wait..."
+      });
+      (await loader).present();
+  
+      try {
+        await this.afAuth
+        .createUserWithEmailAndPassword(user.email, user.password)
+        .then(data => {
+          console.log(data)
+  //redirigir a Home
+  
+          this.navCtrl.navigateRoot("home");
+  
+        }); 
+  
+      } catch(e){
+        this.showToast(e);
+      }
+      //cerrar carga de espera
+      
+      (await loader).dismiss();
+    }
+  }
+  
+  
+
+
 
   async createPost(post: Acces){
     if(this.formValidation()){
@@ -39,6 +76,16 @@ post = { } as Acces;
     }
   }
  formValidation(){
+
+  if(!this.user.email){
+    this.showToast("Enter email");
+    return false;
+  }
+
+  if(!this.user.password){
+    this.showToast("Enter password");
+    return false;
+  }
  
   if (!this.post.nfraccionamiento){
     this.showToast("Ingrese datos faltantes");

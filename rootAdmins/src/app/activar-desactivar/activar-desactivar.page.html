@@ -21,8 +21,8 @@
 
   <ion-list lines ="none">
     
-      <ion-item   routerLink="/infofraccionamiento">
-        <ion-label  class="color"> nombre.fraccionamiento </ion-label>
+      <ion-item   [routerLink]="['/infofraccionamiento', post.id]" *ngFor="let post of access " >
+        <ion-label  class="color"> {{post.nfraccionamiento}} </ion-label>
         <ion-icon color="light" name="chevron-forward"></ion-icon>
       </ion-item>
   </ion-list>

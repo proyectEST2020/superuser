@@ -7,4 +7,7 @@ export interface Acces{
     user: string;
     password: string;
     fecha: Date;
+    cuota: string;
+    status: string;
+
 }
