@@ -38,7 +38,8 @@ id: any;
       this.post.cuota = data["cuota"];
       this.post.nfraccionamiento = data["nfraccionamiento"];
       this.post.fecha = data["fecha"];      
-      // this.post.status = data["status"];
+      this.post.tipo = data["tipo"];      
+      this.post.status = data["status"];
       
     });
 

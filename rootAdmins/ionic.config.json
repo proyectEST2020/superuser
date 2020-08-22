@@ -1,5 +1,7 @@
 {
   "name": "rootAdmins",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }

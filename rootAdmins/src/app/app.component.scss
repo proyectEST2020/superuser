@@ -1,0 +1,42 @@
+#Divuperpuesto{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 9999;
+    width: 100%;
+    background-color: rgb(20, 20, 20);
+}
+
+#despertador{
+    position: absolute;
+    animation-name: viajando;
+    animation-duration: 12s;
+
+}
+// @keyframes viajando{
+//     from{
+//         top: 47%;
+//     }
+//     10%{
+
+//     }
+//     20%{
+
+//     }
+//     to{
+//         top: 0%;
+//     }
+// }
+
+#divsplashh{
+    --background:none;
+    // background: url("../assets/imagen/images.jpg") no-repeat center / cover;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
