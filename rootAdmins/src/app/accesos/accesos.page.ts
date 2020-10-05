@@ -47,6 +47,15 @@ fecha: Date = new Date();
                          this.fechacreacion,
                          this.cuota,
                          this.image = base64data == "" || base64data == null ? this.image : base64data).then( auth => {
+
+                          this.email = "";
+                          this.password = "";
+                          this.users = "";
+                          this.nfraccionamiento = "";
+                          this.tipo = "";
+                          this.fechacreacion = "";
+                          this.cuota = "";
+
       this.router.navigate(['activar-desactivar/'])
     }).catch(err => console.log(err))
   } 
