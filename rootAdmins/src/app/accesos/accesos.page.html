@@ -11,39 +11,43 @@
 
 
   <ion-card>
-
-    <ion-button size="medium" 
-                class="sis"><ion-icon lazy="true" size="lage" slot="start" name="image" color="secondary"></ion-icon> 
-              <input type="file" color="secondary" id="file-input" accept="image/png, image/jpeg" style="font-size: x-small;">
-              </ion-button>
+    <ion-label style="color: red;">Imagen de Logo*</ion-label>
+    <button id="añadir"><input type="file" (change)="loadImageFromDevice($event)" id="file-input" accept="image/png, image/jpeg" style="font-size: x-small;">
+      <img src="../../assets/icons/im.png" id="icon2"/></button>
 
     <ion-item>
       <ion-label class="color" position="floating"> Nombre del Fraccionamiento</ion-label>
-      <ion-input type="text" [(ngModel)]="post.nfraccionamiento" required ></ion-input>
+      <ion-input type="text" [(ngModel)]="nfraccionamiento" required ></ion-input>
     </ion-item>
     <ion-item>
       <ion-label class="color">Tipo de Registro</ion-label>
-      <ion-select  [(ngModel)]="post.tipo" required class="color" placeholder="Registros">
+      <ion-select  [(ngModel)]="tipo" required class="color" placeholder="Registros">
         <ion-select-option value="completo">Completo</ion-select-option>
         <ion-select-option value="Acceso">Acceso</ion-select-option>
       </ion-select>
     </ion-item>
+
     <ion-item>
       <ion-label  class="color" position="floating">Usuario</ion-label>
-      <ion-input type="email" [(ngModel)]="user.email"></ion-input>
+      <ion-input type="text" [(ngModel)]="users"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label  class="color" position="floating">E-mail</ion-label>
+      <ion-input  [(ngModel)]="email"></ion-input>
     </ion-item>
 
     <ion-item>
       <ion-label class="color" position="floating">Contraseña</ion-label>
-      <ion-input type="password" [(ngModel)]="user.password" required ></ion-input>
+      <ion-input type="password" [(ngModel)]="password" required ></ion-input>
     </ion-item>
     <ion-item>
       <ion-label class="color" position="floating">Cuota</ion-label>
-      <ion-input  [(ngModel)]="post.cuota" ></ion-input>
+      <ion-input [(ngModel)]="cuota"></ion-input>
     </ion-item>
     <ion-item class="color">
       <ion-label class="color" position="floating">Fecha de Creacion</ion-label>
-      <ion-datetime  class="color" displayFormat="MM-DD-YYYY"   [(ngModel)]="post.fecha">
+      <ion-datetime  class="color" displayFormat="MM-DD-YYYY" [(ngModel)]="fechacreacion"  >
       </ion-datetime>
     </ion-item>
   </ion-card>
@@ -53,8 +57,7 @@
                 fill="outline" 
                 size="medium" 
                 class="ion-text-wrap"
-                (click)="createPost(post)"
-                (click)="register(user)">
+                (click)="onSubmitRegistro()">
                 <ion-icon name="pencil" color="warning" size="large" slot="start"></ion-icon>
                 Registrar</ion-button>
 </ion-card>

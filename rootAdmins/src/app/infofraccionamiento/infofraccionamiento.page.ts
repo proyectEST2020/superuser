@@ -3,6 +3,8 @@ import { Acces } from '../models/registro-accesos.model';
 import { ActivatedRoute } from '@angular/router';
 import { LoadingController } from '@ionic/angular';
 import { AngularFirestore } from '@angular/fire/firestore';
+import { DomSanitizer, SafeResourceUrl, SafeUrl} from '@angular/platform-browser';
+import {enableProdMode} from '@angular/core';
 
 @Component({
   selector: 'app-infofraccionamiento',
@@ -14,8 +16,9 @@ post = {} as Acces;
 id: any;
 
   constructor( private actRoute: ActivatedRoute,
-                private loadingCtrl: LoadingController,
-                private firestore: AngularFirestore) { 
+               private sanitizer: DomSanitizer,
+               private loadingCtrl: LoadingController,
+               private firestore: AngularFirestore) { 
     this.id = this.actRoute.snapshot.paramMap.get("id");
   }
 
@@ -32,7 +35,7 @@ id: any;
     });
 
     (await loader ) .present();
-    this.firestore.doc("datosroot/" +id) 
+    this.firestore.doc("users/" +id) 
     .valueChanges ()
     .subscribe (data => {
       this.post.cuota = data["cuota"];
@@ -40,6 +43,9 @@ id: any;
       this.post.fecha = data["fecha"];      
       this.post.tipo = data["tipo"];      
       this.post.status = data["status"];
+      this.post.image = data["image"];
+      
+      
       
     });
 
@@ -51,6 +57,11 @@ id: any;
 
   segmentChanged(event: any) {
     console.log('Segment changed', event);
+  }
+
+  getImgContent(imgFile:string): SafeUrl {
+    enableProdMode();
+    return this.sanitizer.bypassSecurityTrustUrl(imgFile);
   }
 
 }

@@ -25,13 +25,13 @@ async getPost(){
   loader.present();
   try {
     this.firestore
-    .collection ("datosroot")
+    .collection ("users")
     .snapshotChanges ()
     .subscribe (data => {
       this.access = data.map(e => {
       return {
         id: e.payload.doc.id,
-        nfraccionamiento: e.payload.doc.data()["nfraccionamiento"]
+        users: e.payload.doc.data()["users"]
       };
     });
 
