@@ -21,9 +21,18 @@
     </ion-item>
     <ion-item>
       <ion-label class="color">Tipo de Registro</ion-label>
-      <ion-select  [(ngModel)]="tipo" required class="color" placeholder="Registros">
+      <ion-select   interface="action-sheet"  multiple="true"  [(ngModel)]="tipo" required class="color" placeholder="Registros">
         <ion-select-option value="completo">Completo</ion-select-option>
         <ion-select-option value="Acceso">Acceso</ion-select-option>
+        <ion-select-option value="Acceso">Mensajes</ion-select-option>
+        <ion-select-option value="Acceso">Directorio</ion-select-option>
+        <ion-select-option value="Acceso">Encuestas</ion-select-option>
+        <ion-select-option value="Acceso">Comunicados</ion-select-option>
+        <ion-select-option value="Acceso">Balance</ion-select-option>
+        <ion-select-option value="Acceso">Market</ion-select-option>
+        <ion-select-option value="Acceso">Reservaciones</ion-select-option>
+        <ion-select-option value="Acceso">Configuracion</ion-select-option>
+        <ion-select-option value="Acceso">Sos</ion-select-option>
       </ion-select>
     </ion-item>
 
