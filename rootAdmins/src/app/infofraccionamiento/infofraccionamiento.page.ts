@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Acces } from '../models/registro-accesos.model';
 import { ActivatedRoute } from '@angular/router';
-import { LoadingController } from '@ionic/angular';
+import { LoadingController, ToastController } from '@ionic/angular';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { DomSanitizer, SafeResourceUrl, SafeUrl} from '@angular/platform-browser';
 import {enableProdMode} from '@angular/core';
@@ -16,6 +16,7 @@ post = {} as Acces;
 id: any;
 
   constructor( private actRoute: ActivatedRoute,
+               private toastCtrl: ToastController,
                private sanitizer: DomSanitizer,
                private loadingCtrl: LoadingController,
                private firestore: AngularFirestore) { 
@@ -40,24 +41,39 @@ id: any;
     .subscribe (data => {
       this.post.cuota = data["cuota"];
       this.post.nfraccionamiento = data["nfraccionamiento"];
-      this.post.fecha = data["fecha"];      
       this.post.tipo = data["tipo"];      
-      this.post.status = data["status"];
       this.post.image = data["image"];
-      
-      
       
     });
 
     (await loader) .dismiss();
-
   }
 
   
 
-  segmentChanged(event: any) {
-    console.log('Segment changed', event);
+  async updatePost(post: Acces){
+      let loader = this.loadingCtrl.create({
+        message: "Actualizando Datos..."
+      });
+      (await loader).present();
+
+      try {
+        await this.firestore.doc("users/" + this.id).update(post);
+      } catch (e) {
+        this.showToast(e);
+      }
+      //cerrar loading
+      (await loader).dismiss();
   }
+
+  showToast(message: string){
+    this.toastCtrl.create({
+      message: message,
+      duration: 3000
+    })
+    .then(toastData => toastData.present());
+  }
+
 
   getImgContent(imgFile:string): SafeUrl {
     enableProdMode();

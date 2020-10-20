@@ -23,7 +23,7 @@
       <img src="{{ post.image }}" />
       <ion-card-header >
         <ion-card-title > {{post.nfraccionamiento}} </ion-card-title>
-        <ion-card-subtitle> {{post.fecha}} </ion-card-subtitle>
+        <ion-input type="text" [(ngModel)]="nfraccionamiento" ></ion-input>
         <ion-card-subtitle> status</ion-card-subtitle>
         <ion-card-subtitle> {{post.cuota}} </ion-card-subtitle>
 
@@ -31,117 +31,14 @@
     </ion-card>
     
     
-    <ion-label>Status Del Coto </ion-label>
-    <ion-segment color="primary" (ionChange)="segmentChanged($event)" value="">
-      <ion-segment-button value="activo">
-        <ion-label color="success" >Activar</ion-label>
-      </ion-segment-button>
-      <ion-segment-button value="desactivado">
-        <ion-label color="success" >Desactivar</ion-label>
-      </ion-segment-button>
-    </ion-segment>
-    <ion-label>Accesos
-       </ion-label>
+    <ion-item>
+      <ion-toggle slot="start" [(ngModel)]="post.tipo" color="primary"></ion-toggle>
+      <ion-label class="ion-text-wrap" style="color: whitesmoke;">Status del Coto (Activo/Desactivo)</ion-label>
+     
+    </ion-item>
 
-    <ion-segment color="success" (ionChange)="segmentChanged($event)" value="">
-      <ion-segment-button value="activo">
-        <ion-label color="primary" >Activar</ion-label>
-      </ion-segment-button>
-      <ion-segment-button value="desactivado">
-        <ion-label color="primary" >Desactivar</ion-label>
-      </ion-segment-button>
-    </ion-segment>
+    <ion-button fill="outline" color="secondary" (click)="updatePost(post)">Actualizar</ion-button>
 
-    <ion-label>Mensajes </ion-label>
-    <ion-segment color="primary" (ionChange)="segmentChanged($event)" value="">
-      <ion-segment-button value="activo">
-        <ion-label color="success" >Activar</ion-label>
-      </ion-segment-button>
-      <ion-segment-button value="desactivado">
-        <ion-label color="success" >Desactivar</ion-label>
-      </ion-segment-button>
-    </ion-segment>
-
-    <ion-label>Comunicados </ion-label>
-    <ion-segment color="success" (ionChange)="segmentChanged($event)" value="">
-      <ion-segment-button value="z">
-        <ion-label color="primary" >Activar</ion-label>
-      </ion-segment-button>
-      <ion-segment-button value="javascript">
-        <ion-label color="primary" >Desactivar</ion-label>
-      </ion-segment-button>
-    </ion-segment>
-
-    <ion-label>Market </ion-label>
-    <ion-segment color="primary" (ionChange)="segmentChanged($event)" value="">
-      <ion-segment-button value="activo">
-        <ion-label color="success" >Activar</ion-label>
-      </ion-segment-button>
-      <ion-segment-button value="desactivado">
-        <ion-label color="success" >Desactivar</ion-label>
-      </ion-segment-button>
-    </ion-segment>
-
-    <ion-label>Directorio </ion-label>
-    <ion-segment color="success" (ionChange)="segmentChanged($event)" value="">
-      <ion-segment-button value="z">
-        <ion-label color="primary" >Activar</ion-label>
-      </ion-segment-button>
-      <ion-segment-button value="javascript">
-        <ion-label color="primary" >Desactivar</ion-label>
-      </ion-segment-button>
-    </ion-segment>
-
-    <ion-label>Encuestas </ion-label>
-    <ion-segment color="primary" (ionChange)="segmentChanged($event)" value="">
-      <ion-segment-button value="activo">
-        <ion-label color="success" >Activar</ion-label>
-      </ion-segment-button>
-      <ion-segment-button value="desactivado">
-        <ion-label color="success" >Desactivar</ion-label>
-      </ion-segment-button>
-    </ion-segment>
-
-    <ion-label>Balance </ion-label>
-    <ion-segment color="success" (ionChange)="segmentChanged($event)" value="">
-      <ion-segment-button value="z">
-        <ion-label color="primary" >Activar</ion-label>
-      </ion-segment-button>
-      <ion-segment-button value="javascript">
-        <ion-label color="primary" >Desactivar</ion-label>
-      </ion-segment-button>
-    </ion-segment>
-
-    <ion-label>Reservaciones </ion-label>
-    <ion-segment color="primary" (ionChange)="segmentChanged($event)" value="">
-      <ion-segment-button value="activo">
-        <ion-label color="success" >Activar</ion-label>
-      </ion-segment-button>
-      <ion-segment-button value="desactivado">
-        <ion-label color="success" >Desactivar</ion-label>
-      </ion-segment-button>
-    </ion-segment>
-
-    <ion-label>Sos </ion-label>
-    <ion-segment color="success" (ionChange)="segmentChanged($event)" value="">
-   <ion-segment-button value="z">
-        <ion-label color="primary" >Activar</ion-label>
-      </ion-segment-button>
-      <ion-segment-button value="javascript">
-        <ion-label color="primary" >Desactivar</ion-label>
-      </ion-segment-button>
-    </ion-segment>
-
-    <ion-label>Configuracion </ion-label>
-    <ion-segment color="primary" (ionChange)="segmentChanged($event)" value="">
-      <ion-segment-button value="activo">
-        <ion-label color="success" >Activar</ion-label>
-      </ion-segment-button>
-      <ion-segment-button value="desactivado">
-        <ion-label color="success" >Desactivar</ion-label>
-      </ion-segment-button>
-    </ion-segment>
-    <br>
 
   </ion-content>
  
