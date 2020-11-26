@@ -1,14 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 // import { Acces } from '../models/registro-accesos.model';
 // import { User } from '../models/user.mode';
-
+import { Plugins , CameraResultType, CameraOptions} from '@capacitor/core';
 import { AuthService } from '../services/auth.service';
 import { Router } from '@angular/router';
 import { ToastController, LoadingController } from '@ionic/angular';
 
 
 let base64data = null; 
-
+const {Camera} = Plugins;
 @Component({
   selector: 'app-accesos',
   templateUrl: './accesos.page.html',
@@ -60,15 +60,23 @@ fecha: Date = new Date();
     }).catch(err => console.log(err))
   } 
 
-  loadImageFromDevice(event) {  
-    const file = event.target.files[0]; 
-    if (file) {      
-      var FR= new FileReader();      
-      FR.addEventListener("load", function(e) {
-        base64data = e.target.result;
-      });      
-      FR.readAsDataURL(file);
-    }   
+  async loadImageFromDevice() {  
+    const images:  CameraOptions = {
+      quality: 50,
+      resultType: CameraResultType.Base64,
+      allowEditing: true
+    }
+      Camera.getPhoto(images).then(imgdata => {
+        this.image = 'data:image/jpeg;base64,' + imgdata.base64String;
+      });
+    // const file = event.target.files[0]; 
+    // if (file) {      
+    //   var FR= new FileReader();      
+    //   FR.addEventListener("load", function(e) {
+    //     base64data = e.target.result;
+    //   });      
+    //   FR.readAsDataURL(file);
+    //}   
   }
 
 

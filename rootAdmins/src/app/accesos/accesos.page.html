@@ -12,7 +12,7 @@
 
   <ion-card>
     <ion-label style="color: red;">Imagen de Logo*</ion-label>
-    <button id="añadir"><input type="file" (change)="loadImageFromDevice($event)" id="file-input" accept="image/png, image/jpeg" style="font-size: x-small;">
+    <button id="añadir"><input (click)="loadImageFromDevice()" id="file-input" accept="image/png, image/jpeg" style="font-size: x-small;">
       <img src="../../assets/icons/im.png" id="icon2"/></button>
 
     <ion-item>
